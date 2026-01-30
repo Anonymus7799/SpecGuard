@@ -1,0 +1,24 @@
+ir:
+  scope:
+    - This specification applies to a functionDefinition within a contractDefinition implementing the ERC-20 standard.
+  normativity:
+    - MUST: Callers MUST handle false from returnParameters of typeName bool, as explicitly stated in the Spec.
+    - OPTIONAL: The decimals functionDefinition MAY be implemented to improve usability, but interfaces and contracts MUST NOT expect its presence.
+  signature:
+    - The functionDefinition is named decimals.
+    - parameterList is empty, indicating no input parameters.
+    - returnParameters specify typeName uint8.
+    - visibility is public.
+    - stateMutability is view.
+  required_behavior:
+    - The functionDefinition MUST return a value of typeName uint8 representing the number of decimals used by the token.
+    - The returnStatement MUST divide the token amount by 10^decimals to provide user representation, approximated using elementaryTypeName uint8.
+  guards_and_failures:
+    - Callers MUST NOT assume false is never returned, requiring an ifStatement to handle this condition.
+  state_effects:
+    - The functionDefinition has no stateVariableDeclaration or mappingType changes due to its stateMutability being view.
+  observables:
+    - No eventDefinition or emitStatement is required for this functionDefinition.
+  gaps:
+    - The Spec implies arithmetic operations (e.g., division by 10^decimals), which cannot be precisely expressed using the available concepts. Approximated using returnStatement and elementaryTypeName uint8.
+    - The handling of false in returnParameters is implied but lacks explicit tryStatement or catchClause representation in the GrammarGraphJSON.

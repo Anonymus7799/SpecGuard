@@ -1,0 +1,22 @@
+ir:
+  scope:
+    - This specification applies to a functionDefinition within a contractDefinition implementing the ERC-20 standard.
+  normativity:
+    - MUST: The functionDefinition for `allowance` must adhere to the described signature and behavior, as specified in the standard.
+  signature:
+    - The functionDefinition has a parameterList consisting of two typeName elements: `address _owner` and `address _spender`.
+    - The functionDefinition has returnParameters of typeName `uint256 remaining`.
+    - The functionDefinition has visibility set to `public`.
+    - The functionDefinition has stateMutability set to `view`.
+  required_behavior:
+    - The functionDefinition must include a block that retrieves the remaining allowance for `_spender` from `_owner`.
+    - The block must include a returnStatement to return the retrieved allowance as `uint256 remaining`.
+  guards_and_failures:
+    - Callers MUST handle `false` from the returnStatement, ensuring that assumptions about success are not made.
+    - If the allowance retrieval fails, a revertStatement should be used to signal the failure.
+  state_effects:
+    - The functionDefinition does not modify any stateVariableDeclaration or mappingType, as it is a view function.
+  observables:
+    - The functionDefinition does not emit any eventDefinition or emitStatement, as it is purely for querying state.
+  gaps:
+    - The specification implies the use of expressions to calculate or retrieve the allowance, but the GrammarGraphJSON lacks explicit expression nodes. This was approximated using block and returnStatement concepts.

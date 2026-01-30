@@ -1,0 +1,19 @@
+ir:
+  scope:
+    - The functionDefinition for `name` resides within a contractDefinition implementing the ERC-20 standard.
+  normativity:
+    - OPTIONAL: The specification states that the `name` function MAY be implemented to improve usability but interfaces and contracts MUST NOT rely on its presence.
+  signature:
+    - The functionDefinition has visibility set to `public`.
+    - The functionDefinition has stateMutability set to `view`.
+    - The returnParameters specify a parameterList containing a single typeName of `string`.
+  required_behavior:
+    - The functionDefinition MUST return the name of the token as a string using a returnStatement.
+  guards_and_failures:
+    - No explicit ifStatement, tryStatement, or revertStatement is required for this function as it is purely informational and does not involve error-prone operations.
+  state_effects:
+    - The functionDefinition does not modify any stateVariableDeclaration or mappingType, as it is marked `view`.
+  observables:
+    - The returnParameters of the functionDefinition provide the observable output, which is the token name as a string.
+  gaps:
+    - The GrammarGraphJSON lacks explicit support for string literals or expressions, so the token name return value is approximated using returnParameters with typeName set to `string`.

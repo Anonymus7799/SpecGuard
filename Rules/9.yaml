@@ -1,0 +1,25 @@
+ir:
+  scope:
+    - contractDefinition: This standard applies to token contracts implementing the ERC-20 interface.
+    - eventDefinition: The Transfer event is defined within the contract body.
+  normativity:
+    - MUST: The Transfer event MUST trigger when tokens are transferred, including zero-value transfers.
+    - SHOULD: Token contracts SHOULD trigger a Transfer event with `_from` set to `0x0` when new tokens are created.
+  signature:
+    - eventDefinition: Transfer(address indexed _from, address indexed _to, uint256 _value).
+    - parameterList: Includes three parameters: `_from`, `_to`, and `_value`, all of type elementaryTypeName.
+  required_behavior:
+    - emitStatement: The Transfer event MUST be emitted during token transfers, including zero-value transfers.
+    - emitStatement: The Transfer event SHOULD be emitted with `_from` set to `0x0` when new tokens are minted.
+  guards_and_failures:
+    - ifStatement: Ensure the Transfer event is emitted only when a valid token transfer occurs.
+    - revertStatement: Revert the transaction if the transfer conditions are invalid or unauthorized.
+  state_effects:
+    - stateVariableDeclaration: Token balances are updated during transfers.
+    - mappingType: Balances are stored in a mapping from address to uint256.
+  observables:
+    - eventDefinition: Transfer event is observable by external systems.
+    - eventParameter: `_from`, `_to`, and `_value` parameters provide details of the transfer.
+  gaps:
+    - Missing expression rules: The exact logic for updating balances and validating transfers cannot be expressed due to lack of expression or assignment nodes.
+    - Approximated minting behavior: The `_from` set to `0x0` for minting is captured using emitStatement but lacks explicit minting logic representation.

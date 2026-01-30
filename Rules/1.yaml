@@ -1,0 +1,25 @@
+ir:
+  scope:
+    - contractDefinition: The specification applies to smart contracts implementing token standards.
+    - functionDefinition: The `symbol` function is defined within the contract.
+  normativity:
+    - OPTIONAL: The `symbol` function is optional, as stated explicitly in the specification.
+    - MUST: Interfaces and contracts MUST NOT expect the `symbol` function to be present, per the specification.
+  signature:
+    - functionDefinition: The `symbol` function is defined as `function symbol() public view returns (string)`.
+    - visibility: The function has `public` visibility.
+    - stateMutability: The function is `view`, indicating it does not modify state.
+    - returnParameters: The function returns a `string` typeName.
+  required_behavior:
+    - block: The function must return the token's symbol, e.g., "HIX".
+    - returnStatement: The function must include a return statement providing the token symbol.
+  guards_and_failures:
+    - revertStatement: Callers MUST handle cases where the function fails or returns `false`.
+  state_effects:
+    - stateVariableDeclaration: The function does not modify any state variables due to its `view` stateMutability.
+  observables:
+    - eventDefinition: No events are emitted by this function.
+    - callArgument: The returned `string` value is observable to the caller.
+  gaps:
+    - The specification implies handling `false` return values, but the GrammarGraphJSON lacks explicit concepts for boolean expressions or error handling in this context. Approximated using revertStatement.
+    - The specification does not detail how the symbol is stored or retrieved, which could involve stateVariableDeclaration or mappingType concepts not explicitly mentioned.

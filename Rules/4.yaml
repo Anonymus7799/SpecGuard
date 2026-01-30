@@ -1,0 +1,22 @@
+ir:
+  scope:
+    - This specification applies to a functionDefinition within a contractDefinition implementing the ERC-20 standard.
+  normativity:
+    - MUST: The functionDefinition for `balanceOf` must adhere to the ERC-20 standard, as specified in the abstract and motivation sections.
+  signature:
+    - The functionDefinition has a parameterList containing one parameter of typeName `address` named `_owner`.
+    - The functionDefinition has visibility set to `public`.
+    - The functionDefinition has stateMutability set to `view`.
+    - The functionDefinition has returnParameters specifying a typeName of `uint256` named `balance`.
+  required_behavior:
+    - The functionDefinition must include a block that retrieves the balance of the `_owner` account using a stateVariableDeclaration or mappingType.
+    - The functionDefinition must include a returnStatement that outputs the retrieved balance as a uint256.
+  guards_and_failures:
+    - Callers MUST handle `false` from the returnStatement, as specified in the notes. This implies the need for an ifStatement or revertStatement to manage failure conditions.
+  state_effects:
+    - The functionDefinition must read from a stateVariableDeclaration or mappingType representing account balances.
+  observables:
+    - The functionDefinition does not emitStatement or eventDefinition, as it is purely a view function.
+  gaps:
+    - The specification implies the use of expressions to retrieve balances, but the GrammarGraphJSON lacks explicit expression rules. This was approximated using stateVariableDeclaration and mappingType.
+    - The handling of `false` in the returnStatement is implied but lacks explicit representation in the GrammarGraphJSON. This was approximated using ifStatement and revertStatement.

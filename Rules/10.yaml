@@ -1,0 +1,17 @@
+ir:
+  scope:
+    - The `Approval` event is defined within a contractDefinition as part of the contractBodyElement.
+  normativity:
+    - MUST: The `Approval` event MUST be emitted on any successful call to the functionDefinition `approve(address _spender, uint256 _value)` as specified in the standard.
+  signature:
+    - The `Approval` event is an eventDefinition with eventParameter elements: `address indexed _owner`, `address indexed _spender`, and `uint256 _value`.
+  required_behavior:
+    - The functionDefinition `approve(address _spender, uint256 _value)` MUST include an emitStatement to trigger the `Approval` event.
+  guards_and_failures:
+    - If the `approve` function fails due to invalid input or insufficient permissions, a revertStatement SHOULD be used to prevent state changes.
+  state_effects:
+    - The `approve` function MAY update a stateVariableDeclaration or mappingType to record the approved allowance for `_spender`.
+  observables:
+    - The `Approval` eventDefinition is observable via an emitStatement, with eventParameter values `_owner`, `_spender`, and `_value` passed as callArgument elements.
+  gaps:
+    - The specification does not explicitly define the internal logic of the `approve` function, such as how allowances are stored or validated. This was approximated using stateVariableDeclaration and mappingType concepts.

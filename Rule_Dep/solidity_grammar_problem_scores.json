@@ -1,0 +1,43 @@
+{
+  "sourceUnit": {
+    "depth": 0,
+    "parser_fan_out": 13,
+    "lexer_fan_out": 1,
+    "total_fan_out": 14,
+    "in_degree": 0,
+    "fan_out_depth_ratio": 14.0,
+    "problem_score": 14.0,
+    "is_problematic": false,
+    "problem_severity": "low"
+  },
+  "pragmaDirective": {
+    "depth": 1,
+    "parser_fan_out": 0,
+    "lexer_fan_out": 3,
+    "total_fan_out": 3,
+    "in_degree": 1,
+    "fan_out_depth_ratio": 1.5,
+    "problem_score": 2.12,
+    "is_problematic": false,
+    "problem_severity": "low"
+  },
+  "importDirective": {
+    "depth": 1,
+    "parser_fan_out": 3,
+    "lexer_fan_out": 5,
+    "total_fan_out": 8,
+    "in_degree": 1,
+    "fan_out_depth_ratio": 4.0,
+    "problem_score": 5.66,
+    "is_problematic": false,
+    "problem_severity": "low"
+  },
+  "importAliases": {
+    "depth": 3,
+    "parser_fan_out": 1,
+    "lexer_fan_out": 1,
+    "total_fan_out": 2,
+    "in_degree": 1,
+    "fan_out_depth_ratio": 0.5,
+    "problem_score": 1.0,
+    "is_problematic": 

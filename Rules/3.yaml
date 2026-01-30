@@ -1,0 +1,22 @@
+ir:
+  scope:
+    - The function totalSupply is defined within a contractDefinition.
+    - It is part of the contractBodyElement of the contract.
+  normativity:
+    - MUST: The functionDefinition for totalSupply must return the total token supply as specified in the requirement.
+    - MUST: Callers must handle false from returns(bool success) as per the specification.
+  signature:
+    - The functionDefinition has visibility set to public.
+    - The functionDefinition has stateMutability set to view.
+    - The returnParameters of the functionDefinition specify a parameterList containing typeName uint256.
+  required_behavior:
+    - The functionDefinition must include a block that calculates and returns the total token supply.
+    - The returnStatement within the block must provide the total token supply as a uint256 typeName.
+  guards_and_failures:
+    - The specification does not explicitly mention failure conditions for totalSupply, but callers must handle false from returns(bool success), which implies a revertStatement may be used in other functions.
+  state_effects:
+    - The functionDefinition is marked as view, indicating no stateVariableDeclaration or state changes occur.
+  observables:
+    - The functionDefinition does not emit any events or use emitStatement.
+  gaps:
+    - The specification implies handling false from returns(bool success), but the GrammarGraphJSON lacks explicit concepts for boolean expressions or handling return values directly. This was approximated using returnStatement and revertStatement.

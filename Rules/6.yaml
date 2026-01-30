@@ -1,0 +1,24 @@
+ir:
+  scope:
+    - The `transferFrom` function is defined within a contractDefinition, as part of the ERC-20 standard API.
+  normativity:
+    - MUST: The functionDefinition for `transferFrom` MUST fire the Transfer eventDefinition when tokens are transferred, as specified in the standard.
+    - SHOULD: The functionDefinition SHOULD throw (via revertStatement) unless the `_from` account has authorized the sender, ensuring security.
+  signature:
+    - The functionDefinition has a parameterList consisting of typeName `address` for `_from`, `_to`, and typeName `uint256` for `_value`.
+    - The returnParameters of the functionDefinition include a typeName `bool` indicating success.
+    - The visibility of the functionDefinition is public.
+  required_behavior:
+    - The block of the functionDefinition MUST include an emitStatement for the Transfer eventDefinition when tokens are transferred.
+    - The block MUST handle transfers of 0 values as normal transfers, including firing the Transfer eventDefinition.
+    - The block SHOULD include a revertStatement if `_from` has not authorized the sender.
+  guards_and_failures:
+    - An ifStatement SHOULD check whether `_from` has authorized the sender; if not, a revertStatement SHOULD be executed.
+    - Callers MUST handle false return values from the returnStatement, ensuring proper error handling.
+  state_effects:
+    - The functionDefinition interacts with stateVariableDeclaration representing token balances, updating them based on `_value`.
+  observables:
+    - The Transfer eventDefinition MUST be emitted via an emitStatement with eventParameter values `_from`, `_to`, and `_value`.
+  gaps:
+    - The GrammarGraphJSON lacks explicit expression rules for arithmetic operations (e.g., subtracting `_value` from `_from` balance). This was approximated using stateVariableDeclaration and block semantics.
+    - No direct concept for authorization mechanisms (e.g., allowance checks). Approximated using ifStatement and revertStatement.

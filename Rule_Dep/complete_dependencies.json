@@ -1,0 +1,1068 @@
+{
+  "sourceUnit": {
+    "parser_rules": [
+      "pragmaDirective",
+      "importDirective",
+      "usingDirective",
+      "contractDefinition",
+      "interfaceDefinition",
+      "libraryDefinition",
+      "functionDefinition",
+      "constantVariableDeclaration",
+      "structDefinition",
+      "enumDefinition",
+      "userDefinedValueTypeDefinition",
+      "errorDefinition",
+      "eventDefinition"
+    ],
+    "lexer_tokens": [
+      "EOF"
+    ]
+  },
+  "pragmaDirective": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "Pragma",
+      "PragmaToken",
+      "PragmaSemicolon"
+    ]
+  },
+  "importDirective": {
+    "parser_rules": [
+      "path",
+      "identifier",
+      "symbolAliases"
+    ],
+    "lexer_tokens": [
+      "Import",
+      "As",
+      "From",
+      "Mul",
+      "Semicolon"
+    ]
+  },
+  "importAliases": {
+    "parser_rules": [
+      "identifier"
+    ],
+    "lexer_tokens": [
+      "As"
+    ]
+  },
+  "path": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "NonEmptyStringLiteral"
+    ]
+  },
+  "symbolAliases": {
+    "parser_rules": [
+      "importAliases"
+    ],
+    "lexer_tokens": [
+      "LBrace",
+      "Comma",
+      "RBrace"
+    ]
+  },
+  "contractDefinition": {
+    "parser_rules": [
+      "identifier",
+      "expression",
+      "inheritanceSpecifierList",
+      "contractBodyElement"
+    ],
+    "lexer_tokens": [
+      "Abstract",
+      "Contract",
+      "Layout",
+      "At",
+      "LBrace",
+      "RBrace"
+    ]
+  },
+  "interfaceDefinition": {
+    "parser_rules": [
+      "identifier",
+      "inheritanceSpecifierList",
+      "contractBodyElement"
+    ],
+    "lexer_tokens": [
+      "Interface",
+      "LBrace",
+      "RBrace"
+    ]
+  },
+  "libraryDefinition": {
+    "parser_rules": [
+      "identifier",
+      "contractBodyElement"
+    ],
+    "lexer_tokens": [
+      "Library",
+      "LBrace",
+      "RBrace"
+    ]
+  },
+  "inheritanceSpecifierList": {
+    "parser_rules": [
+      "inheritanceSpecifier"
+    ],
+    "lexer_tokens": [
+      "Is",
+      "Comma"
+    ]
+  },
+  "inheritanceSpecifier": {
+    "parser_rules": [
+      "identifierPath",
+      "callArgumentList"
+    ],
+    "lexer_tokens": []
+  },
+  "contractBodyElement": {
+    "parser_rules": [
+      "constructorDefinition",
+      "functionDefinition",
+      "modifierDefinition",
+      "fallbackFunctionDefinition",
+      "receiveFunctionDefinition",
+      "structDefinition",
+      "enumDefinition",
+      "userDefinedValueTypeDefinition",
+      "stateVariableDeclaration",
+      "eventDefinition",
+      "errorDefinition",
+      "usingDirective"
+    ],
+    "lexer_tokens": []
+  },
+  "namedArgument": {
+    "parser_rules": [
+      "identifier",
+      "expression"
+    ],
+    "lexer_tokens": [
+      "Colon"
+    ]
+  },
+  "callArgumentList": {
+    "parser_rules": [
+      "expression",
+      "namedArgument"
+    ],
+    "lexer_tokens": [
+      "LParen",
+      "Comma",
+      "LBrace",
+      "RBrace",
+      "RParen"
+    ]
+  },
+  "identifierPath": {
+    "parser_rules": [
+      "identifier"
+    ],
+    "lexer_tokens": [
+      "Period"
+    ]
+  },
+  "modifierInvocation": {
+    "parser_rules": [
+      "identifierPath",
+      "callArgumentList"
+    ],
+    "lexer_tokens": []
+  },
+  "visibility": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "Internal",
+      "External",
+      "Private",
+      "Public"
+    ]
+  },
+  "parameterList": {
+    "parser_rules": [
+      "parameterDeclaration"
+    ],
+    "lexer_tokens": [
+      "Comma"
+    ]
+  },
+  "parameterDeclaration": {
+    "parser_rules": [
+      "typeName",
+      "dataLocation",
+      "identifier"
+    ],
+    "lexer_tokens": []
+  },
+  "constructorDefinition": {
+    "parser_rules": [
+      "parameterList",
+      "modifierInvocation",
+      "block"
+    ],
+    "lexer_tokens": [
+      "Constructor",
+      "LParen",
+      "RParen",
+      "Payable",
+      "Internal",
+      "Public"
+    ]
+  },
+  "stateMutability": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "Pure",
+      "View",
+      "Payable"
+    ]
+  },
+  "overrideSpecifier": {
+    "parser_rules": [
+      "identifierPath"
+    ],
+    "lexer_tokens": [
+      "Override",
+      "LParen",
+      "Comma",
+      "RParen"
+    ]
+  },
+  "functionDefinition": {
+    "parser_rules": [
+      "identifier",
+      "parameterList",
+      "visibility",
+      "stateMutability",
+      "modifierInvocation",
+      "overrideSpecifier",
+      "block"
+    ],
+    "lexer_tokens": [
+      "Function",
+      "Fallback",
+      "Receive",
+      "LParen",
+      "RParen",
+      "Virtual",
+      "Returns",
+      "Semicolon"
+    ]
+  },
+  "modifierDefinition": {
+    "parser_rules": [
+      "identifier",
+      "parameterList",
+      "overrideSpecifier",
+      "block"
+    ],
+    "lexer_tokens": [
+      "Modifier",
+      "LParen",
+      "RParen",
+      "Virtual",
+      "Semicolon"
+    ]
+  },
+  "fallbackFunctionDefinition": {
+    "parser_rules": [
+      "parameterList",
+      "stateMutability",
+      "modifierInvocation",
+      "overrideSpecifier",
+      "block"
+    ],
+    "lexer_tokens": [
+      "Fallback",
+      "LParen",
+      "RParen",
+      "External",
+      "Virtual",
+      "Returns",
+      "Semicolon"
+    ]
+  },
+  "receiveFunctionDefinition": {
+    "parser_rules": [
+      "modifierInvocation",
+      "overrideSpecifier",
+      "block"
+    ],
+    "lexer_tokens": [
+      "Receive",
+      "LParen",
+      "RParen",
+      "External",
+      "Payable",
+      "Virtual",
+      "Semicolon"
+    ]
+  },
+  "structDefinition": {
+    "parser_rules": [
+      "identifier",
+      "structMember"
+    ],
+    "lexer_tokens": [
+      "Struct",
+      "LBrace",
+      "RBrace"
+    ]
+  },
+  "structMember": {
+    "parser_rules": [
+      "typeName",
+      "identifier"
+    ],
+    "lexer_tokens": [
+      "Semicolon"
+    ]
+  },
+  "enumDefinition": {
+    "parser_rules": [
+      "identifier"
+    ],
+    "lexer_tokens": [
+      "Enum",
+      "LBrace",
+      "Comma",
+      "RBrace"
+    ]
+  },
+  "userDefinedValueTypeDefinition": {
+    "parser_rules": [
+      "identifier",
+      "elementaryTypeName"
+    ],
+    "lexer_tokens": [
+      "Type",
+      "Is",
+      "Semicolon"
+    ]
+  },
+  "stateVariableDeclaration": {
+    "parser_rules": [
+      "typeName",
+      "overrideSpecifier",
+      "identifier",
+      "expression"
+    ],
+    "lexer_tokens": [
+      "Public",
+      "Private",
+      "Internal",
+      "Constant",
+      "Immutable",
+      "Transient",
+      "Assign",
+      "Semicolon"
+    ]
+  },
+  "constantVariableDeclaration": {
+    "parser_rules": [
+      "typeName",
+      "identifier",
+      "expression"
+    ],
+    "lexer_tokens": [
+      "Constant",
+      "Assign",
+      "Semicolon"
+    ]
+  },
+  "eventParameter": {
+    "parser_rules": [
+      "typeName",
+      "identifier"
+    ],
+    "lexer_tokens": [
+      "Indexed"
+    ]
+  },
+  "eventDefinition": {
+    "parser_rules": [
+      "identifier",
+      "eventParameter"
+    ],
+    "lexer_tokens": [
+      "Event",
+      "LParen",
+      "Comma",
+      "RParen",
+      "Anonymous",
+      "Semicolon"
+    ]
+  },
+  "errorParameter": {
+    "parser_rules": [
+      "typeName",
+      "identifier"
+    ],
+    "lexer_tokens": []
+  },
+  "errorDefinition": {
+    "parser_rules": [
+      "identifier",
+      "errorParameter"
+    ],
+    "lexer_tokens": [
+      "Error",
+      "LParen",
+      "Comma",
+      "RParen",
+      "Semicolon"
+    ]
+  },
+  "userDefinableOperator": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "BitAnd",
+      "BitNot",
+      "BitOr",
+      "BitXor",
+      "Add",
+      "Div",
+      "Mod",
+      "Mul",
+      "Sub",
+      "Equal",
+      "GreaterThan",
+      "GreaterThanOrEqual",
+      "LessThan",
+      "LessThanOrEqual",
+      "NotEqual"
+    ]
+  },
+  "usingDirective": {
+    "parser_rules": [
+      "identifierPath",
+      "usingAliases",
+      "typeName"
+    ],
+    "lexer_tokens": [
+      "Using",
+      "LBrace",
+      "Comma",
+      "RBrace",
+      "For",
+      "Mul",
+      "Global",
+      "Semicolon"
+    ]
+  },
+  "usingAliases": {
+    "parser_rules": [
+      "identifierPath",
+      "userDefinableOperator"
+    ],
+    "lexer_tokens": [
+      "As"
+    ]
+  },
+  "typeName": {
+    "parser_rules": [
+      "elementaryTypeName",
+      "functionTypeName",
+      "mappingType",
+      "identifierPath",
+      "typeName",
+      "expression"
+    ],
+    "lexer_tokens": [
+      "LBrack",
+      "RBrack"
+    ]
+  },
+  "elementaryTypeName": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "Address",
+      "Payable",
+      "Bool",
+      "String",
+      "Bytes",
+      "SignedIntegerType",
+      "UnsignedIntegerType",
+      "FixedBytes",
+      "Fixed",
+      "Ufixed"
+    ]
+  },
+  "functionTypeName": {
+    "parser_rules": [
+      "parameterList",
+      "visibility",
+      "stateMutability"
+    ],
+    "lexer_tokens": [
+      "Function",
+      "LParen",
+      "RParen",
+      "Returns"
+    ]
+  },
+  "variableDeclaration": {
+    "parser_rules": [
+      "typeName",
+      "dataLocation",
+      "identifier"
+    ],
+    "lexer_tokens": []
+  },
+  "dataLocation": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "Memory",
+      "Storage",
+      "Calldata"
+    ]
+  },
+  "expression": {
+    "parser_rules": [
+      "expression",
+      "identifier",
+      "namedArgument",
+      "callArgumentList",
+      "typeName",
+      "assignOp",
+      "tupleExpression",
+      "inlineArrayExpression",
+      "literal",
+      "literalWithSubDenomination",
+      "elementaryTypeName"
+    ],
+    "lexer_tokens": [
+      "LBrack",
+      "RBrack",
+      "Colon",
+      "Period",
+      "Address",
+      "LBrace",
+      "Comma",
+      "RBrace",
+      "Payable",
+      "Type",
+      "LParen",
+      "RParen",
+      "Inc",
+      "Dec",
+      "Not",
+      "BitNot",
+      "Delete",
+      "Sub",
+      "Exp",
+      "Mul",
+      "Div",
+      "Mod",
+      "Add",
+      "Shl",
+      "Sar",
+      "Shr",
+      "BitAnd",
+      "BitXor",
+      "BitOr",
+      "LessThan",
+      "GreaterThan",
+      "LessThanOrEqual",
+      "GreaterThanOrEqual",
+      "Equal",
+      "NotEqual",
+      "And",
+      "Or",
+      "Conditional",
+      "New"
+    ]
+  },
+  "assignOp": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "Assign",
+      "AssignBitOr",
+      "AssignBitXor",
+      "AssignBitAnd",
+      "AssignShl",
+      "AssignSar",
+      "AssignShr",
+      "AssignAdd",
+      "AssignSub",
+      "AssignMul",
+      "AssignDiv",
+      "AssignMod"
+    ]
+  },
+  "tupleExpression": {
+    "parser_rules": [
+      "expression"
+    ],
+    "lexer_tokens": [
+      "LParen",
+      "Comma",
+      "RParen"
+    ]
+  },
+  "inlineArrayExpression": {
+    "parser_rules": [
+      "expression"
+    ],
+    "lexer_tokens": [
+      "LBrack",
+      "Comma",
+      "RBrack"
+    ]
+  },
+  "identifier": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "Identifier",
+      "From",
+      "Error",
+      "Revert",
+      "Global",
+      "Transient",
+      "Layout",
+      "At"
+    ]
+  },
+  "literal": {
+    "parser_rules": [
+      "stringLiteral",
+      "numberLiteral",
+      "booleanLiteral",
+      "hexStringLiteral",
+      "unicodeStringLiteral"
+    ],
+    "lexer_tokens": []
+  },
+  "literalWithSubDenomination": {
+    "parser_rules": [
+      "numberLiteral"
+    ],
+    "lexer_tokens": [
+      "SubDenomination"
+    ]
+  },
+  "booleanLiteral": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "True",
+      "False"
+    ]
+  },
+  "stringLiteral": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "NonEmptyStringLiteral",
+      "EmptyStringLiteral"
+    ]
+  },
+  "hexStringLiteral": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "HexString"
+    ]
+  },
+  "unicodeStringLiteral": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "UnicodeStringLiteral"
+    ]
+  },
+  "numberLiteral": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "DecimalNumber",
+      "HexNumber"
+    ]
+  },
+  "block": {
+    "parser_rules": [
+      "statement",
+      "uncheckedBlock"
+    ],
+    "lexer_tokens": [
+      "LBrace",
+      "RBrace"
+    ]
+  },
+  "uncheckedBlock": {
+    "parser_rules": [
+      "block"
+    ],
+    "lexer_tokens": [
+      "Unchecked"
+    ]
+  },
+  "statement": {
+    "parser_rules": [
+      "block",
+      "simpleStatement",
+      "ifStatement",
+      "forStatement",
+      "whileStatement",
+      "doWhileStatement",
+      "continueStatement",
+      "breakStatement",
+      "tryStatement",
+      "returnStatement",
+      "emitStatement",
+      "revertStatement",
+      "assemblyStatement"
+    ],
+    "lexer_tokens": []
+  },
+  "simpleStatement": {
+    "parser_rules": [
+      "variableDeclarationStatement",
+      "expressionStatement"
+    ],
+    "lexer_tokens": []
+  },
+  "ifStatement": {
+    "parser_rules": [
+      "expression",
+      "statement"
+    ],
+    "lexer_tokens": [
+      "If",
+      "LParen",
+      "RParen",
+      "Else"
+    ]
+  },
+  "forStatement": {
+    "parser_rules": [
+      "simpleStatement",
+      "expressionStatement",
+      "expression",
+      "statement"
+    ],
+    "lexer_tokens": [
+      "For",
+      "LParen",
+      "Semicolon",
+      "RParen"
+    ]
+  },
+  "whileStatement": {
+    "parser_rules": [
+      "expression",
+      "statement"
+    ],
+    "lexer_tokens": [
+      "While",
+      "LParen",
+      "RParen"
+    ]
+  },
+  "doWhileStatement": {
+    "parser_rules": [
+      "statement",
+      "expression"
+    ],
+    "lexer_tokens": [
+      "Do",
+      "While",
+      "LParen",
+      "RParen",
+      "Semicolon"
+    ]
+  },
+  "continueStatement": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "Continue",
+      "Semicolon"
+    ]
+  },
+  "breakStatement": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "Break",
+      "Semicolon"
+    ]
+  },
+  "tryStatement": {
+    "parser_rules": [
+      "expression",
+      "parameterList",
+      "block",
+      "catchClause"
+    ],
+    "lexer_tokens": [
+      "Try",
+      "Returns",
+      "LParen",
+      "RParen"
+    ]
+  },
+  "catchClause": {
+    "parser_rules": [
+      "identifier",
+      "parameterList",
+      "block"
+    ],
+    "lexer_tokens": [
+      "Catch",
+      "LParen",
+      "RParen"
+    ]
+  },
+  "returnStatement": {
+    "parser_rules": [
+      "expression"
+    ],
+    "lexer_tokens": [
+      "Return",
+      "Semicolon"
+    ]
+  },
+  "emitStatement": {
+    "parser_rules": [
+      "expression",
+      "callArgumentList"
+    ],
+    "lexer_tokens": [
+      "Emit",
+      "Semicolon"
+    ]
+  },
+  "revertStatement": {
+    "parser_rules": [
+      "expression",
+      "callArgumentList"
+    ],
+    "lexer_tokens": [
+      "Revert",
+      "Semicolon"
+    ]
+  },
+  "assemblyStatement": {
+    "parser_rules": [
+      "assemblyFlags",
+      "yulStatement"
+    ],
+    "lexer_tokens": [
+      "Assembly",
+      "AssemblyDialect",
+      "AssemblyLBrace",
+      "YulRBrace"
+    ]
+  },
+  "assemblyFlags": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "AssemblyBlockLParen",
+      "AssemblyFlagString",
+      "AssemblyBlockComma",
+      "AssemblyBlockRParen"
+    ]
+  },
+  "variableDeclarationList": {
+    "parser_rules": [
+      "variableDeclaration"
+    ],
+    "lexer_tokens": [
+      "Comma"
+    ]
+  },
+  "variableDeclarationTuple": {
+    "parser_rules": [
+      "variableDeclaration"
+    ],
+    "lexer_tokens": [
+      "LParen",
+      "Comma",
+      "RParen"
+    ]
+  },
+  "variableDeclarationStatement": {
+    "parser_rules": [
+      "variableDeclaration",
+      "expression",
+      "variableDeclarationTuple"
+    ],
+    "lexer_tokens": [
+      "Assign",
+      "Semicolon"
+    ]
+  },
+  "expressionStatement": {
+    "parser_rules": [
+      "expression"
+    ],
+    "lexer_tokens": [
+      "Semicolon"
+    ]
+  },
+  "mappingType": {
+    "parser_rules": [
+      "mappingKeyType",
+      "identifier",
+      "typeName"
+    ],
+    "lexer_tokens": [
+      "Mapping",
+      "LParen",
+      "DoubleArrow",
+      "RParen"
+    ]
+  },
+  "mappingKeyType": {
+    "parser_rules": [
+      "elementaryTypeName",
+      "identifierPath"
+    ],
+    "lexer_tokens": []
+  },
+  "yulStatement": {
+    "parser_rules": [
+      "yulBlock",
+      "yulVariableDeclaration",
+      "yulAssignment",
+      "yulFunctionCall",
+      "yulIfStatement",
+      "yulForStatement",
+      "yulSwitchStatement",
+      "yulFunctionDefinition"
+    ],
+    "lexer_tokens": [
+      "YulLeave",
+      "YulBreak",
+      "YulContinue"
+    ]
+  },
+  "yulBlock": {
+    "parser_rules": [
+      "yulStatement"
+    ],
+    "lexer_tokens": [
+      "YulLBrace",
+      "YulRBrace"
+    ]
+  },
+  "yulVariableDeclaration": {
+    "parser_rules": [
+      "yulExpression",
+      "yulFunctionCall"
+    ],
+    "lexer_tokens": [
+      "YulLet",
+      "YulIdentifier",
+      "YulAssign",
+      "YulComma"
+    ]
+  },
+  "yulAssignment": {
+    "parser_rules": [
+      "yulPath",
+      "yulExpression",
+      "yulFunctionCall"
+    ],
+    "lexer_tokens": [
+      "YulAssign",
+      "YulComma"
+    ]
+  },
+  "yulIfStatement": {
+    "parser_rules": [
+      "yulExpression",
+      "yulBlock"
+    ],
+    "lexer_tokens": [
+      "YulIf"
+    ]
+  },
+  "yulForStatement": {
+    "parser_rules": [
+      "yulBlock",
+      "yulExpression"
+    ],
+    "lexer_tokens": [
+      "YulFor"
+    ]
+  },
+  "yulSwitchCase": {
+    "parser_rules": [
+      "yulLiteral",
+      "yulBlock"
+    ],
+    "lexer_tokens": [
+      "YulCase"
+    ]
+  },
+  "yulSwitchStatement": {
+    "parser_rules": [
+      "yulExpression",
+      "yulSwitchCase",
+      "yulBlock"
+    ],
+    "lexer_tokens": [
+      "YulSwitch",
+      "YulDefault"
+    ]
+  },
+  "yulFunctionDefinition": {
+    "parser_rules": [
+      "yulBlock"
+    ],
+    "lexer_tokens": [
+      "YulFunction",
+      "YulIdentifier",
+      "YulLParen",
+      "YulComma",
+      "YulRParen",
+      "YulArrow"
+    ]
+  },
+  "yulPath": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "YulIdentifier",
+      "YulPeriod",
+      "YulEVMBuiltin"
+    ]
+  },
+  "yulFunctionCall": {
+    "parser_rules": [
+      "yulExpression"
+    ],
+    "lexer_tokens": [
+      "YulIdentifier",
+      "YulEVMBuiltin",
+      "YulLParen",
+      "YulComma",
+      "YulRParen"
+    ]
+  },
+  "yulBoolean": {
+    "parser_rules": [],
+    "lexer_tokens": [
+      "YulTrue",
+      "YulFalse"
+    ]
+  },
+  "yulLiteral": {
+    "parser_rules": [
+      "yulBoolean"
+    ],
+    "lexer_tokens": [
+      "YulDecimalNumber",
+      "YulStringLiteral",
+      "YulHexNumber",
+      "YulHexStringLiteral"
+    ]
+  },
+  "yulExpression": {
+    "parser_rules": [
+      "yulPath",
+      "yulFunctionCall",
+      "yulLiteral"
+    ],
+    "lexer_tokens": []
+  }
+}

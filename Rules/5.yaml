@@ -1,0 +1,24 @@
+ir:
+  scope:
+    - This functionDefinition is part of a contractDefinition implementing the ERC-20 standard.
+  normativity:
+    - MUST: The functionDefinition MUST fire the Transfer eventDefinition when tokens are transferred, as specified in the standard.
+    - SHOULD: The functionDefinition SHOULD throw using revertStatement if the caller's balance is insufficient, as recommended in the specification.
+  signature:
+    - The functionDefinition has a parameterList consisting of typeName address for `_to` and typeName uint256 for `_value`.
+    - The functionDefinition returns returnParameters of typeName bool indicating success.
+    - The visibility of the functionDefinition is public.
+  required_behavior:
+    - The functionDefinition MUST include a block that checks the caller's balance using ifStatement and throws using revertStatement if insufficient.
+    - The functionDefinition MUST include an emitStatement to fire the Transfer eventDefinition after a successful transfer.
+    - The functionDefinition MUST treat transfers of 0 values as normal transfers and include an emitStatement for the Transfer eventDefinition.
+  guards_and_failures:
+    - An ifStatement MUST verify that the caller's balance is sufficient before proceeding with the transfer.
+    - A revertStatement SHOULD be used to throw if the balance check fails.
+  state_effects:
+    - The functionDefinition modifies stateVariableDeclaration representing token balances, likely using mappingType with mappingKeyType address and typeName uint256.
+  observables:
+    - The Transfer eventDefinition MUST be emitted using emitStatement with eventParameter values `_to`, `_value`, and the caller's address.
+  gaps:
+    - The GrammarGraphJSON lacks explicit expression rules for balance checks and arithmetic operations. These were approximated using ifStatement and revertStatement.
+    - The GrammarGraphJSON does not include assignment or update rules for stateVariableDeclaration, which were approximated using block and mappingType.

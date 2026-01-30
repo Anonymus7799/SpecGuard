@@ -1,0 +1,385 @@
+{
+  "sourceUnit": [
+    "pragmaDirective",
+    "importDirective",
+    "usingDirective",
+    "contractDefinition",
+    "interfaceDefinition",
+    "libraryDefinition",
+    "functionDefinition",
+    "constantVariableDeclaration",
+    "structDefinition",
+    "enumDefinition",
+    "userDefinedValueTypeDefinition",
+    "errorDefinition",
+    "eventDefinition"
+  ],
+  "pragmaDirective": [],
+  "importDirective": [
+    "path",
+    "identifier",
+    "symbolAliases"
+  ],
+  "importAliases": [
+    "identifier"
+  ],
+  "path": [],
+  "symbolAliases": [
+    "importAliases"
+  ],
+  "contractDefinition": [
+    "identifier",
+    "expression",
+    "inheritanceSpecifierList",
+    "contractBodyElement"
+  ],
+  "interfaceDefinition": [
+    "identifier",
+    "inheritanceSpecifierList",
+    "contractBodyElement"
+  ],
+  "libraryDefinition": [
+    "identifier",
+    "contractBodyElement"
+  ],
+  "inheritanceSpecifierList": [
+    "inheritanceSpecifier"
+  ],
+  "inheritanceSpecifier": [
+    "identifierPath",
+    "callArgumentList"
+  ],
+  "contractBodyElement": [
+    "constructorDefinition",
+    "functionDefinition",
+    "modifierDefinition",
+    "fallbackFunctionDefinition",
+    "receiveFunctionDefinition",
+    "structDefinition",
+    "enumDefinition",
+    "userDefinedValueTypeDefinition",
+    "stateVariableDeclaration",
+    "eventDefinition",
+    "errorDefinition",
+    "usingDirective"
+  ],
+  "namedArgument": [
+    "identifier",
+    "expression"
+  ],
+  "callArgumentList": [
+    "expression",
+    "namedArgument"
+  ],
+  "identifierPath": [
+    "identifier"
+  ],
+  "modifierInvocation": [
+    "identifierPath",
+    "callArgumentList"
+  ],
+  "visibility": [],
+  "parameterList": [
+    "parameterDeclaration"
+  ],
+  "parameterDeclaration": [
+    "typeName",
+    "dataLocation",
+    "identifier"
+  ],
+  "constructorDefinition": [
+    "parameterList",
+    "modifierInvocation",
+    "block"
+  ],
+  "stateMutability": [],
+  "overrideSpecifier": [
+    "identifierPath"
+  ],
+  "functionDefinition": [
+    "identifier",
+    "parameterList",
+    "visibility",
+    "stateMutability",
+    "modifierInvocation",
+    "overrideSpecifier",
+    "block"
+  ],
+  "modifierDefinition": [
+    "identifier",
+    "parameterList",
+    "overrideSpecifier",
+    "block"
+  ],
+  "fallbackFunctionDefinition": [
+    "parameterList",
+    "stateMutability",
+    "modifierInvocation",
+    "overrideSpecifier",
+    "block"
+  ],
+  "receiveFunctionDefinition": [
+    "modifierInvocation",
+    "overrideSpecifier",
+    "block"
+  ],
+  "structDefinition": [
+    "identifier",
+    "structMember"
+  ],
+  "structMember": [
+    "typeName",
+    "identifier"
+  ],
+  "enumDefinition": [
+    "identifier"
+  ],
+  "userDefinedValueTypeDefinition": [
+    "identifier",
+    "elementaryTypeName"
+  ],
+  "stateVariableDeclaration": [
+    "typeName",
+    "overrideSpecifier",
+    "identifier",
+    "expression"
+  ],
+  "constantVariableDeclaration": [
+    "typeName",
+    "identifier",
+    "expression"
+  ],
+  "eventParameter": [
+    "typeName",
+    "identifier"
+  ],
+  "eventDefinition": [
+    "identifier",
+    "eventParameter"
+  ],
+  "errorParameter": [
+    "typeName",
+    "identifier"
+  ],
+  "errorDefinition": [
+    "identifier",
+    "errorParameter"
+  ],
+  "userDefinableOperator": [],
+  "usingDirective": [
+    "identifierPath",
+    "usingAliases",
+    "typeName"
+  ],
+  "usingAliases": [
+    "identifierPath",
+    "userDefinableOperator"
+  ],
+  "typeName": [
+    "elementaryTypeName",
+    "functionTypeName",
+    "mappingType",
+    "identifierPath",
+    "typeName",
+    "expression"
+  ],
+  "elementaryTypeName": [],
+  "functionTypeName": [
+    "parameterList",
+    "visibility",
+    "stateMutability"
+  ],
+  "variableDeclaration": [
+    "typeName",
+    "dataLocation",
+    "identifier"
+  ],
+  "dataLocation": [],
+  "expression": [
+    "expression",
+    "identifier",
+    "namedArgument",
+    "callArgumentList",
+    "typeName",
+    "assignOp",
+    "tupleExpression",
+    "inlineArrayExpression",
+    "literal",
+    "literalWithSubDenomination",
+    "elementaryTypeName"
+  ],
+  "assignOp": [],
+  "tupleExpression": [
+    "expression"
+  ],
+  "inlineArrayExpression": [
+    "expression"
+  ],
+  "identifier": [],
+  "literal": [
+    "stringLiteral",
+    "numberLiteral",
+    "booleanLiteral",
+    "hexStringLiteral",
+    "unicodeStringLiteral"
+  ],
+  "literalWithSubDenomination": [
+    "numberLiteral"
+  ],
+  "booleanLiteral": [],
+  "stringLiteral": [],
+  "hexStringLiteral": [],
+  "unicodeStringLiteral": [],
+  "numberLiteral": [],
+  "block": [
+    "statement",
+    "uncheckedBlock"
+  ],
+  "uncheckedBlock": [
+    "block"
+  ],
+  "statement": [
+    "block",
+    "simpleStatement",
+    "ifStatement",
+    "forStatement",
+    "whileStatement",
+    "doWhileStatement",
+    "continueStatement",
+    "breakStatement",
+    "tryStatement",
+    "returnStatement",
+    "emitStatement",
+    "revertStatement",
+    "assemblyStatement"
+  ],
+  "simpleStatement": [
+    "variableDeclarationStatement",
+    "expressionStatement"
+  ],
+  "ifStatement": [
+    "expression",
+    "statement"
+  ],
+  "forStatement": [
+    "simpleStatement",
+    "expressionStatement",
+    "expression",
+    "statement"
+  ],
+  "whileStatement": [
+    "expression",
+    "statement"
+  ],
+  "doWhileStatement": [
+    "statement",
+    "expression"
+  ],
+  "continueStatement": [],
+  "breakStatement": [],
+  "tryStatement": [
+    "expression",
+    "parameterList",
+    "block",
+    "catchClause"
+  ],
+  "catchClause": [
+    "identifier",
+    "parameterList",
+    "block"
+  ],
+  "returnStatement": [
+    "expression"
+  ],
+  "emitStatement": [
+    "expression",
+    "callArgumentList"
+  ],
+  "revertStatement": [
+    "expression",
+    "callArgumentList"
+  ],
+  "assemblyStatement": [
+    "assemblyFlags",
+    "yulStatement"
+  ],
+  "assemblyFlags": [],
+  "variableDeclarationList": [
+    "variableDeclaration"
+  ],
+  "variableDeclarationTuple": [
+    "variableDeclaration"
+  ],
+  "variableDeclarationStatement": [
+    "variableDeclaration",
+    "expression",
+    "variableDeclarationTuple"
+  ],
+  "expressionStatement": [
+    "expression"
+  ],
+  "mappingType": [
+    "mappingKeyType",
+    "identifier",
+    "typeName"
+  ],
+  "mappingKeyType": [
+    "elementaryTypeName",
+    "identifierPath"
+  ],
+  "yulStatement": [
+    "yulBlock",
+    "yulVariableDeclaration",
+    "yulAssignment",
+    "yulFunctionCall",
+    "yulIfStatement",
+    "yulForStatement",
+    "yulSwitchStatement",
+    "yulFunctionDefinition"
+  ],
+  "yulBlock": [
+    "yulStatement"
+  ],
+  "yulVariableDeclaration": [
+    "yulExpression",
+    "yulFunctionCall"
+  ],
+  "yulAssignment": [
+    "yulPath",
+    "yulExpression",
+    "yulFunctionCall"
+  ],
+  "yulIfStatement": [
+    "yulExpression",
+    "yulBlock"
+  ],
+  "yulForStatement": [
+    "yulBlock",
+    "yulExpression"
+  ],
+  "yulSwitchCase": [
+    "yulLiteral",
+    "yulBlock"
+  ],
+  "yulSwitchStatement": [
+    "yulExpression",
+    "yulSwitchCase",
+    "yulBlock"
+  ],
+  "yulFunctionDefinition": [
+    "yulBlock"
+  ],
+  "yulPath": [],
+  "yulFunctionCall": [
+    "yulExpression"
+  ],
+  "yulBoolean": [],
+  "yulLiteral": [
+    "yulBoolean"
+  ],
+  "yulExpression": [
+    "yulPath",
+    "yulFunctionCall",
+    "yulLiteral"
+  ]
+}

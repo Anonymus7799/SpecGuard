@@ -1,0 +1,24 @@
+ir:
+  scope:
+    - The approve function is defined within a contractDefinition, as part of the ERC-20 token standard.
+    - The function resides in a sourceUnit that adheres to Solidity syntax version 0.4.17 or above.
+  normativity:
+    - MUST: Callers MUST handle false from returns(bool success), as explicitly stated in the specification.
+    - SHOULD: Clients SHOULD set the allowance to 0 before updating it to another value, to prevent attack vectors, as per the provided references.
+  signature:
+    - The approve function is a functionDefinition with parameterList containing typeName for address (_spender) and uint256 (_value).
+    - The function has public visibility and returns returnParameters of typeName bool (success).
+  required_behavior:
+    - The functionDefinition MUST overwrite the current allowance with _value when called again.
+    - The functionDefinition MUST allow _spender to withdraw up to _value multiple times.
+    - The block within the functionDefinition MUST include a returnStatement that returns a boolean indicating success or failure.
+  guards_and_failures:
+    - The function SHOULD NOT enforce setting allowance to 0 before updating it, as per the specification, to maintain compatibility with older contracts.
+    - If the allowance update fails, the functionDefinition MUST return false via a returnStatement.
+  state_effects:
+    - The function modifies stateVariableDeclaration representing the allowance mappingType between mappingKeyType address and typeName uint256.
+  observables:
+    - The function MAY trigger an emitStatement for an eventDefinition indicating allowance changes, though this is not explicitly stated in the specification.
+  gaps:
+    - The specification implies the need for expressions to calculate and update allowance values, but expression rules are not present in GrammarGraphJSON. Approximated using stateVariableDeclaration and mappingType.
+    - The specification references external links for attack prevention strategies, which cannot be directly represented in the available concepts.
