@@ -17,12 +17,10 @@ SpecGuard addresses the challenge of verifying software compliance against natur
 
 ```
 SpecGuard/
-├── dataset/              # Smart contract evaluation dataset
+├── data_and_results.zip     # Contains dataset, reports, and reports_baseline
 ├── generate_req.py       # Requirement extraction and processing
 ├── verifier.py          # Main compliance verification engine
 ├── simple_verifier.py   # Baseline direct prompting verifier
-├── reports/             # Grammar-grounded verification results
-├── reports_baseline/    # Direct prompting baseline results
 ├── Rules/               # Grammar-constrained requirement specifications
 └── Rule_Dep/            # Grammar Dep Graph extraction
 ```
